@@ -1,0 +1,2348 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission 31 ans de Sophie FRANQUET</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,850&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --ink: #17212b;
+      --muted: #64717f;
+      --paper: #fbfdff;
+      --panel: rgba(255, 255, 255, 0.82);
+      --teal: #0b8f8a;
+      --teal-dark: #066966;
+      --coral: #ff6f61;
+      --gold: #f6bd3b;
+      --mint: #9ee6c8;
+      --sky: #8bd4ff;
+      --rose: #ffb3c7;
+      --line: rgba(23, 33, 43, 0.14);
+      --shadow: 0 26px 70px rgba(22, 42, 57, 0.18);
+      --progress: 0%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: "Space Grotesk", Verdana, sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 111, 97, 0.24), transparent 24rem),
+        radial-gradient(circle at 78% 8%, rgba(139, 212, 255, 0.32), transparent 24rem),
+        radial-gradient(circle at 72% 78%, rgba(158, 230, 200, 0.38), transparent 22rem),
+        linear-gradient(135deg, #f8fbff 0%, #fff7f2 44%, #eefcf8 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      position: fixed;
+      inset: auto;
+      z-index: -2;
+      width: 30rem;
+      height: 30rem;
+      border: 1px solid rgba(23, 33, 43, 0.1);
+      content: "";
+      transform: rotate(18deg);
+      animation: drift 15s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      top: -10rem;
+      left: -8rem;
+      background: repeating-linear-gradient(45deg, rgba(255, 111, 97, 0.12) 0 0.7rem, transparent 0.7rem 1.4rem);
+    }
+
+    body::after {
+      right: -12rem;
+      bottom: -12rem;
+      background: repeating-linear-gradient(-45deg, rgba(11, 143, 138, 0.12) 0 0.65rem, transparent 0.65rem 1.35rem);
+      animation-duration: 18s;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .app {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      color: #fff;
+      background: conic-gradient(from 210deg, var(--coral), var(--gold), var(--teal), var(--sky), var(--coral));
+      border: 3px solid rgba(255, 255, 255, 0.86);
+      border-radius: 8px;
+      box-shadow: 0 14px 26px rgba(23, 33, 43, 0.18);
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .scoreboard {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 14px 36px rgba(23, 33, 43, 0.1);
+    }
+
+    .score-box {
+      min-width: 92px;
+      padding: 8px 10px;
+      text-align: center;
+      background: #fff;
+      border: 1px solid rgba(23, 33, 43, 0.09);
+      border-radius: 8px;
+    }
+
+    .score-box span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .score-box strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 1.18rem;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.94fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .game-panel,
+    .gift-panel {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .game-panel {
+      padding: 24px;
+    }
+
+    .game-panel::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      background: linear-gradient(90deg, var(--coral), var(--gold), var(--teal), var(--sky));
+      content: "";
+    }
+
+    .round-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .chip.theme-pokemon {
+      background: linear-gradient(135deg, rgba(246, 189, 59, 0.28), rgba(139, 212, 255, 0.24));
+    }
+
+    .chip.theme-disney {
+      background: linear-gradient(135deg, rgba(139, 212, 255, 0.28), rgba(255, 179, 199, 0.3));
+    }
+
+    .chip.theme-friends {
+      background: linear-gradient(135deg, rgba(158, 230, 200, 0.32), rgba(255, 111, 97, 0.2));
+    }
+
+    .round-count {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .question-wrap {
+      min-height: 174px;
+      padding: 22px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58)),
+        radial-gradient(circle at 95% 0%, rgba(246, 189, 59, 0.18), transparent 13rem);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .question {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2.04rem;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subprompt {
+      min-height: 24px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .answer-card {
+      position: relative;
+      min-height: 76px;
+      padding: 15px 16px;
+      color: var(--ink);
+      text-align: left;
+      background: rgba(255, 255, 255, 0.92);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      box-shadow: 0 12px 24px rgba(23, 33, 43, 0.08);
+      cursor: pointer;
+      isolation: isolate;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .answer-card::after {
+      position: absolute;
+      inset: 9px;
+      z-index: -1;
+      border: 1px dashed rgba(23, 33, 43, 0.1);
+      border-radius: 6px;
+      content: "";
+    }
+
+    .answer-card:hover:not(:disabled),
+    .answer-card:focus-visible:not(:disabled) {
+      transform: translateY(-3px);
+      border-color: rgba(11, 143, 138, 0.45);
+      box-shadow: 0 18px 34px rgba(23, 33, 43, 0.12);
+      outline: none;
+    }
+
+    .answer-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .answer-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .answer-card.selected {
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), #18a999);
+      border-color: rgba(255, 255, 255, 0.85);
+    }
+
+    .answer-card.selected span,
+    .answer-card.correct span,
+    .answer-card.wrong span {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .answer-card.correct {
+      color: #fff;
+      background: linear-gradient(135deg, #0b8f8a, #49b874);
+      border-color: rgba(255, 255, 255, 0.9);
+      animation: pop 460ms ease both;
+    }
+
+    .answer-card.wrong {
+      color: #fff;
+      background: linear-gradient(135deg, #db4c40, #f5855d);
+      border-color: rgba(255, 255, 255, 0.86);
+      animation: nope 360ms ease both;
+    }
+
+    .answer-card:disabled {
+      cursor: not-allowed;
+    }
+
+    .cash-form {
+      grid-column: 1 / -1;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 2px solid rgba(23, 33, 43, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 12px 24px rgba(23, 33, 43, 0.08);
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+    }
+
+    .cash-form.correct {
+      color: #fff;
+      background: linear-gradient(135deg, #0b8f8a, #49b874);
+      border-color: rgba(255, 255, 255, 0.9);
+      animation: pop 460ms ease both;
+    }
+
+    .cash-form.wrong {
+      border-color: rgba(219, 76, 64, 0.55);
+      animation: nope 360ms ease both;
+    }
+
+    .cash-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .cash-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .cash-input {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .cash-input:focus {
+      border-color: rgba(11, 143, 138, 0.65);
+      box-shadow: 0 0 0 4px rgba(11, 143, 138, 0.12);
+    }
+
+    .feedback-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      min-height: 64px;
+      margin-top: 18px;
+    }
+
+    .feedback {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .feedback.good {
+      color: var(--teal-dark);
+      font-weight: 700;
+    }
+
+    .feedback.bad {
+      color: #ad3b32;
+      font-weight: 700;
+    }
+
+    .primary-action,
+    .ghost-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      letter-spacing: 0;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .primary-action {
+      color: #fff;
+      background: linear-gradient(135deg, var(--ink), #0b8f8a);
+      border: 0;
+      box-shadow: 0 14px 28px rgba(11, 143, 138, 0.24);
+    }
+
+    .primary-action:hover:not(:disabled),
+    .primary-action:focus-visible:not(:disabled),
+    .ghost-action:hover,
+    .ghost-action:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .primary-action:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .ghost-action {
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .gift-panel {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .gift-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .gift-heading h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.58rem;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .gift-heading p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .progress-ring {
+      display: grid;
+      flex: 0 0 auto;
+      width: 72px;
+      height: 72px;
+      place-items: center;
+      background: conic-gradient(var(--teal) var(--progress), rgba(23, 33, 43, 0.1) 0);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.8);
+    }
+
+    .progress-ring span {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      background: #fff;
+      border-radius: 50%;
+      font-weight: 850;
+    }
+
+    .gift-image-wrap {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      margin-top: 6px;
+      background: #dff6f3;
+      border: 1px solid rgba(23, 33, 43, 0.12);
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.74), 0 22px 44px rgba(23, 33, 43, 0.13);
+    }
+
+    .gift-picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.012);
+    }
+
+    .tile-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(31, 1fr);
+      grid-template-rows: 1fr;
+      overflow: hidden;
+    }
+
+    .fog-tile {
+      position: relative;
+      background: rgba(255, 255, 255, 0.36);
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      backdrop-filter: blur(17px) saturate(0.75);
+      transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;
+    }
+
+    .fog-tile::after {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.26), transparent),
+        repeating-linear-gradient(45deg, rgba(23, 33, 43, 0.08) 0 1px, transparent 1px 8px);
+      content: "";
+    }
+
+    .fog-tile.revealed {
+      opacity: 0;
+      transform: scale(0.92) rotate(1deg);
+      filter: brightness(1.16);
+      pointer-events: none;
+    }
+
+    .sparkle-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .sparkle-layer i {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    .sparkle-layer.burst i {
+      animation: sparkle 780ms ease-out both;
+    }
+
+    .gift-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .mini-leds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: flex-end;
+    }
+
+    .mini-leds span {
+      width: 12px;
+      height: 12px;
+      background: rgba(23, 33, 43, 0.14);
+      border-radius: 50%;
+      transition: background 300ms ease, transform 300ms ease;
+    }
+
+    .mini-leds span.on {
+      background: var(--teal);
+      transform: scale(1.1);
+      box-shadow: 0 0 0 4px rgba(11, 143, 138, 0.12);
+    }
+
+    .memory-map {
+      margin-top: 16px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .memory-map-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .memory-map-heading span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .memory-path {
+      position: relative;
+      display: grid;
+      grid-auto-columns: 112px;
+      grid-auto-flow: column;
+      gap: 13px;
+      min-height: 124px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      padding: 10px 4px 14px;
+      scrollbar-width: thin;
+    }
+
+    .memory-path::before {
+      position: absolute;
+      top: 59px;
+      left: 0;
+      width: calc(31 * 125px);
+      height: 4px;
+      background: repeating-linear-gradient(90deg, rgba(11, 143, 138, 0.36) 0 28px, rgba(246, 189, 59, 0.46) 28px 56px);
+      border-radius: 999px;
+      content: "";
+    }
+
+    .photo-step {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      justify-items: center;
+      opacity: 0.48;
+      transform: translateY(12px) scale(0.92);
+      transition: opacity 360ms ease, transform 360ms ease, filter 360ms ease;
+      filter: grayscale(1) saturate(0.6);
+    }
+
+    .photo-step.unlocked {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: none;
+      animation: photoArrive 680ms ease both;
+    }
+
+    .photo-step.active .photo-frame {
+      box-shadow: 0 0 0 5px rgba(246, 189, 59, 0.28), 0 16px 30px rgba(11, 143, 138, 0.18);
+    }
+
+    .photo-frame {
+      width: 96px;
+      height: 96px;
+      overflow: hidden;
+      background: #fff;
+      border: 4px solid #fff;
+      border-radius: 8px;
+      box-shadow: 0 10px 18px rgba(23, 33, 43, 0.14);
+      padding: 0;
+      transform: rotate(var(--tilt));
+      cursor: pointer;
+    }
+
+    .photo-frame:disabled {
+      cursor: default;
+    }
+
+    .photo-frame:focus-visible {
+      outline: 4px solid rgba(246, 189, 59, 0.45);
+      outline-offset: 4px;
+    }
+
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-step span {
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .photo-step small {
+      color: var(--muted);
+      font-size: 0.68rem;
+      text-align: center;
+    }
+
+    .photo-reveal {
+      position: fixed;
+      inset: 0;
+      z-index: 14;
+      display: grid;
+      place-items: center;
+      visibility: hidden;
+      opacity: 0;
+      padding: 22px;
+      background: rgba(248, 251, 255, 0.72);
+      backdrop-filter: blur(18px);
+      transition: opacity 260ms ease, visibility 260ms ease;
+    }
+
+    .photo-reveal.open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .photo-reveal-card {
+      width: min(680px, 100%);
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transform: translateY(18px) scale(0.96);
+      transition: transform 260ms ease;
+    }
+
+    .photo-reveal.open .photo-reveal-card {
+      transform: translateY(0) scale(1);
+      animation: photoSpotlight 540ms ease both;
+    }
+
+    .photo-reveal-frame {
+      position: relative;
+      overflow: hidden;
+      width: min(520px, 100%);
+      aspect-ratio: 1;
+      margin: 0 auto 16px;
+      background: #fff;
+      border: 8px solid #fff;
+      border-radius: 8px;
+      box-shadow: 0 22px 46px rgba(23, 33, 43, 0.18);
+    }
+
+    .photo-reveal-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-reveal-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 7px 10px;
+      color: #fff;
+      background: rgba(23, 33, 43, 0.82);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .photo-reveal-card h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2.2rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .photo-reveal-card p {
+      margin: 10px auto 16px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    .intro,
+    .finale {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(248, 251, 255, 0.78);
+      backdrop-filter: blur(18px);
+      overflow-y: auto;
+    }
+
+    .access-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 18;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(246, 189, 59, 0.24), transparent 21rem),
+        radial-gradient(circle at 78% 72%, rgba(11, 143, 138, 0.24), transparent 22rem),
+        rgba(248, 251, 255, 0.84);
+      backdrop-filter: blur(20px);
+    }
+
+    .access-card {
+      width: min(680px, 100%);
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      animation: riseIn 520ms ease both;
+    }
+
+    .access-card h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2.7rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .access-card p {
+      max-width: 520px;
+      margin: 14px auto 22px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .access-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .access-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .access-input {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 15px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .access-input:focus {
+      border-color: rgba(11, 143, 138, 0.65);
+      box-shadow: 0 0 0 4px rgba(11, 143, 138, 0.12);
+    }
+
+    .access-feedback {
+      min-height: 24px;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .access-feedback.bad {
+      color: #ad3b32;
+      animation: nope 360ms ease both;
+    }
+
+    .intro-card,
+    .finale-card {
+      width: min(720px, 100%);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      animation: riseIn 520ms ease both;
+    }
+
+    .intro-card h2,
+    .finale-card h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2.5rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .intro-card p,
+    .finale-card p {
+      max-width: 560px;
+      margin: 14px auto 22px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .intro-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .intro-strip span {
+      min-height: 64px;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(139, 212, 255, 0.26), rgba(255, 255, 255, 0.9));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    .finale {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 260ms ease, visibility 260ms ease;
+    }
+
+    .finale.open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .final-gift {
+      width: min(540px, 100%);
+      aspect-ratio: 3 / 2;
+      margin: 0 auto 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 38px rgba(23, 33, 43, 0.14);
+    }
+
+    .final-gift img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .final-memory-path {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 7px;
+      max-height: 150px;
+      margin: 0 auto 18px;
+      overflow-y: auto;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .final-memory-path img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 2px solid #fff;
+      border-radius: 7px;
+      box-shadow: 0 6px 12px rgba(23, 33, 43, 0.1);
+    }
+
+    .final-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .confetti-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate3d(0, 0, 0) rotate(18deg);
+      }
+      to {
+        transform: translate3d(28px, 18px, 0) rotate(26deg);
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+      }
+      48% {
+        transform: scale(1.035);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes nope {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      28% {
+        transform: translateX(-7px);
+      }
+      64% {
+        transform: translateX(7px);
+      }
+    }
+
+    @keyframes sparkle {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.25);
+      }
+      35% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.1);
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes photoArrive {
+      0% {
+        transform: translateY(18px) scale(0.86) rotate(-2deg);
+      }
+      55% {
+        transform: translateY(-6px) scale(1.06) rotate(2deg);
+      }
+      100% {
+        transform: translateY(0) scale(1) rotate(0);
+      }
+    }
+
+    @keyframes photoSpotlight {
+      0% {
+        filter: saturate(0.7) brightness(1.08);
+      }
+      60% {
+        filter: saturate(1.18) brightness(1.04);
+      }
+      100% {
+        filter: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stage {
+        grid-template-columns: 1fr;
+      }
+
+      .scoreboard {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 660px) {
+      .app {
+        width: min(100% - 20px, 1180px);
+        padding: 16px 0;
+      }
+
+      .brand h1 {
+        font-size: 1.62rem;
+      }
+
+      .scoreboard,
+      .feedback-row,
+      .gift-footer,
+      .gift-heading {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .scoreboard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .score-box {
+        min-width: 0;
+      }
+
+      .game-panel,
+      .gift-panel {
+        padding: 16px;
+      }
+
+      .question-wrap {
+        padding: 18px;
+      }
+
+      .question {
+        font-size: 1.58rem;
+      }
+
+      .answers,
+      .intro-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .cash-line {
+        grid-template-columns: 1fr;
+      }
+
+      .access-card {
+        padding: 22px;
+      }
+
+      .access-card h2 {
+        font-size: 2rem;
+      }
+
+      .access-line {
+        grid-template-columns: 1fr;
+      }
+
+      .memory-path {
+        grid-auto-columns: 104px;
+      }
+
+      .final-memory-path {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .photo-reveal-card {
+        padding: 12px;
+      }
+
+      .photo-reveal-card h2 {
+        font-size: 1.72rem;
+      }
+
+      .round-count {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .progress-ring {
+        width: 62px;
+        height: 62px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <main class="app" aria-live="polite">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">SF</div>
+        <div>
+          <h1>Sophie FRANQUET · 31 ans</h1>
+          <p>Data Scientist · Actuaire · Generali · invitation à dévoiler.</p>
+        </div>
+      </div>
+      <div class="scoreboard" aria-label="Progression de la partie">
+        <div class="score-box">
+          <span>Score</span>
+          <strong id="scoreValue">0</strong>
+        </div>
+        <div class="score-box">
+          <span>Image</span>
+          <strong id="imageValue">0/31</strong>
+        </div>
+        <div class="score-box">
+          <span>Round</span>
+          <strong id="roundValue">1/31</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="stage">
+      <article class="game-panel" id="gamePanel">
+        <div class="round-meta">
+          <span class="chip" id="modeChip">Duo carré cash</span>
+          <span class="chip" id="themeChip">Pokémon</span>
+          <span class="round-count" id="roundCount">Round 1 sur 15</span>
+        </div>
+
+        <div class="question-wrap">
+          <p class="eyebrow" id="eyebrow">Choisis les deux bonnes cartes</p>
+          <h2 class="question" id="questionText">Question</h2>
+          <p class="subprompt" id="subprompt">Deux réponses fonctionnent ensemble.</p>
+        </div>
+
+        <div class="answers" id="answers"></div>
+
+        <div class="feedback-row">
+          <p class="feedback" id="feedback">La bonne réponse enlève une tuile de flou.</p>
+          <button class="primary-action" id="nextButton" type="button" disabled>Suivant</button>
+        </div>
+      </article>
+
+      <aside class="gift-panel" aria-label="Image cadeau à révéler">
+        <div class="gift-heading">
+          <div>
+            <h2>31 ans de Sophie FRANQUET</h2>
+            <p id="giftStatus">Le parcours photo avance morceau par morceau.</p>
+          </div>
+          <div class="progress-ring" aria-hidden="true"><span id="progressPercent">0%</span></div>
+        </div>
+
+        <div class="gift-image-wrap" id="giftWrap">
+          <img class="gift-picture" id="giftPicture" alt="Cadeau de Sophie FRANQUET à déflouter">
+          <div class="tile-grid" id="tileGrid" aria-hidden="true"></div>
+          <div class="sparkle-layer" id="sparkleLayer" aria-hidden="true"></div>
+        </div>
+
+        <div class="gift-footer">
+          <span id="unlockLabel">0 morceau révélé</span>
+          <div class="mini-leds" id="miniLeds" aria-hidden="true"></div>
+        </div>
+
+        <div class="memory-map" aria-label="Parcours photo des 31 ans">
+          <div class="memory-map-heading">
+            <strong>Parcours mignon de Sophie</strong>
+            <span id="memoryStatus">0 photo débloquée</span>
+          </div>
+          <div class="memory-path" id="memoryPath"></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <section class="access-gate" id="accessGate" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+    <div class="access-card">
+      <h2 id="accessTitle">Avant d'entrer...</h2>
+      <p>Où étais-tu en avril 2026 ?</p>
+      <form class="access-form" id="accessForm">
+        <div class="access-line">
+          <input class="access-input" id="accessAnswer" type="text" autocomplete="off" placeholder="Ta réponse">
+          <button class="primary-action" type="submit">Déverrouiller</button>
+        </div>
+        <p class="access-feedback" id="accessFeedback">Une seule destination ouvre la mission.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="intro" id="introScreen" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <div class="intro-card">
+      <h2 id="introTitle">Sophie FRANQUET, 31 ans contre le flou</h2>
+      <p>Une mission pensée pour Sophie FRANQUET, Data Scientist et Actuaire chez Generali. Chaque bonne réponse débloque une photo du parcours et rend l'invitation plus nette.</p>
+      <div class="intro-strip" aria-hidden="true">
+        <span>Data Scientist</span>
+        <span>Actuaire</span>
+        <span>Generali</span>
+      </div>
+      <button class="primary-action" id="startButton" type="button">Lancer la mission</button>
+    </div>
+  </section>
+
+  <section class="finale" id="finaleScreen" role="dialog" aria-modal="true" aria-labelledby="finaleTitle">
+    <div class="finale-card">
+      <h2 id="finaleTitle">Mission Sophie FRANQUET validée</h2>
+      <p>La Data Scientist et Actuaire de Generali a gagné son invitation. Les 31 souvenirs sont révélés et l'image est maintenant nette.</p>
+      <div class="final-gift">
+        <img id="finalGiftPicture" alt="Cadeau final de Sophie FRANQUET">
+      </div>
+      <div class="final-memory-path" id="finalMemoryPath" aria-label="Les 31 photos du parcours final"></div>
+      <div class="final-actions">
+        <button class="primary-action" id="downloadButton" type="button">Télécharger le cadeau</button>
+        <button class="ghost-action" id="replayButton" type="button">Rejouer</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="photo-reveal" id="photoReveal" role="dialog" aria-modal="true" aria-labelledby="photoRevealTitle">
+    <div class="photo-reveal-card">
+      <div class="photo-reveal-frame">
+        <img id="photoRevealImage" alt="Photo débloquée en grand">
+        <span class="photo-reveal-badge" id="photoRevealBadge">1/31</span>
+      </div>
+      <h2 class="sr-only" id="photoRevealTitle">Photo débloquée</h2>
+      <p class="sr-only" id="photoRevealCaption">Un souvenir vient d'apparaître dans le parcours.</p>
+      <button class="primary-action" id="photoRevealButton" type="button">Continuer</button>
+    </div>
+  </section>
+
+  <script>
+    const BIRTHDAY_AGE = 31;
+    const TOTAL_TILES = BIRTHDAY_AGE;
+    const GIFT_IMAGE_PATH = "cadeau.png";
+
+    const gift = {
+      name: "Sophie FRANQUET",
+      lineOne: "Bon anniversaire pour tes 31 ans",
+      title: "Data Scientist · Actuaire",
+      company: "Generali",
+      destination: "une journée surprise calibrée rien que pour toi",
+      date: "Date à choisir ensemble",
+      from: "31 souvenirs, 1 cadeau, 100% Sophie"
+    };
+
+    const starterRounds = [
+      {
+        type: "duo",
+        mode: "Duo carré cash",
+        theme: "Pokémon",
+        eyebrow: "Choisis les deux cartes liées",
+        question: "Quel duo appartient à la même famille d'évolution ?",
+        subprompt: "Sélectionne exactement deux cartes.",
+        options: [
+          { title: "Pikachu", detail: "petite souris électrique" },
+          { title: "Raichu", detail: "évolution électrique" },
+          { title: "Carapuce", detail: "starter eau" },
+          { title: "Évoli", detail: "évolutions multiples" }
+        ],
+        answer: [0, 1],
+        explanation: "Pikachu évolue en Raichu."
+      },
+      {
+        type: "quiz",
+        mode: "Question pour un champion",
+        theme: "Disney",
+        eyebrow: "Une seule bonne réponse",
+        question: "Dans quel film trouve-t-on une lampe magique ?",
+        subprompt: "Vise juste pour retirer une tuile.",
+        options: [
+          { title: "Aladdin", detail: "marchés, génie et tapis volant" },
+          { title: "Le Roi Lion", detail: "savane et destinée" },
+          { title: "La Reine des neiges", detail: "glace et royaume" },
+          { title: "Vaiana", detail: "océan et aventure" }
+        ],
+        answer: 0,
+        explanation: "La lampe magique est au centre de l'aventure d'Aladdin."
+      },
+      {
+        type: "lyrics",
+        mode: "N'oubliez pas les paroles",
+        theme: "Friends",
+        eyebrow: "Complète la phrase originale",
+        question: "Au café du coin, les amis se retrouvent pour garder le ___.",
+        subprompt: "Phrase inventée pour le jeu, pas besoin de connaître une chanson.",
+        options: [
+          { title: "sourire", detail: "la réponse qui garde l'ambiance" },
+          { title: "parapluie", detail: "utile, mais pas ici" },
+          { title: "silence", detail: "rare dans cette bande" },
+          { title: "ticket", detail: "pas le bon refrain" }
+        ],
+        answer: 0,
+        explanation: "Le sourire colle mieux à l'esprit Friends."
+      },
+      {
+        type: "duo",
+        mode: "Duo carré cash",
+        theme: "Disney",
+        eyebrow: "Choisis les deux cartes liées",
+        question: "Quel duo vient du même classique animé ?",
+        subprompt: "Deux personnages, un même univers.",
+        options: [
+          { title: "Simba", detail: "héritier de la Terre des Lions" },
+          { title: "Nala", detail: "amie d'enfance de Simba" },
+          { title: "Stitch", detail: "expérience 626" },
+          { title: "Elsa", detail: "reine aux pouvoirs glacés" }
+        ],
+        answer: [0, 1],
+        explanation: "Simba et Nala appartiennent au Roi Lion."
+      },
+      {
+        type: "quiz",
+        mode: "Question pour un champion",
+        theme: "Friends",
+        eyebrow: "Une seule bonne réponse",
+        question: "Quel personnage travaille comme cheffe cuisinière ?",
+        subprompt: "La bonne réponse fait avancer l'image.",
+        options: [
+          { title: "Monica", detail: "organisée, compétitive, cordon bleu" },
+          { title: "Rachel", detail: "mode et grands virages" },
+          { title: "Phoebe", detail: "guitare et massages" },
+          { title: "Chandler", detail: "sarcasme niveau expert" }
+        ],
+        answer: 0,
+        explanation: "Monica est cheffe cuisinière."
+      },
+      {
+        type: "lyrics",
+        mode: "N'oubliez pas les paroles",
+        theme: "Pokémon",
+        eyebrow: "Complète la phrase originale",
+        question: "Dans l'arène, mon cœur choisit toujours le ___.",
+        subprompt: "Phrase inventée pour cette partie.",
+        options: [
+          { title: "courage", detail: "la bonne énergie de combat" },
+          { title: "canapé", detail: "tentant, mais trop calme" },
+          { title: "miroir", detail: "joli, mais hors thème" },
+          { title: "cartable", detail: "pas le bon rythme" }
+        ],
+        answer: 0,
+        explanation: "Le courage donne le bon refrain d'aventure."
+      },
+      {
+        type: "duo",
+        mode: "Duo carré cash",
+        theme: "Friends",
+        eyebrow: "Choisis les deux cartes liées",
+        question: "Quel duo partage longtemps le même appartement ?",
+        subprompt: "Sélectionne les deux colocataires.",
+        options: [
+          { title: "Monica", detail: "l'appartement violet le plus connu" },
+          { title: "Rachel", detail: "nouvelle vie à New York" },
+          { title: "Janice", detail: "apparitions mémorables" },
+          { title: "Gunther", detail: "café et amour secret" }
+        ],
+        answer: [0, 1],
+        explanation: "Monica et Rachel sont colocataires pendant une grande partie de la série."
+      },
+      {
+        type: "quiz",
+        mode: "Question pour un champion",
+        theme: "Pokémon",
+        eyebrow: "Une seule bonne réponse",
+        question: "Quel Pokémon est connu pour évoluer avec une Pierre Foudre ?",
+        subprompt: "Un classique électrique.",
+        options: [
+          { title: "Pikachu", detail: "souris électrique" },
+          { title: "Psykokwak", detail: "canard migraineux" },
+          { title: "Rondoudou", detail: "chanteur rose" },
+          { title: "Miaouss", detail: "pièces et moustaches" }
+        ],
+        answer: 0,
+        explanation: "Pikachu peut évoluer en Raichu avec une Pierre Foudre."
+      },
+      {
+        type: "lyrics",
+        mode: "N'oubliez pas les paroles",
+        theme: "Disney",
+        eyebrow: "Complète la phrase originale",
+        question: "Sous les étoiles, un vœu grandit dans la ___.",
+        subprompt: "Phrase inventée pour garder l'esprit conte de fées.",
+        options: [
+          { title: "nuit", detail: "simple et magique" },
+          { title: "chaussette", detail: "trop pratique" },
+          { title: "valise", detail: "pas assez féérique" },
+          { title: "fourchette", detail: "mauvais banquet" }
+        ],
+        answer: 0,
+        explanation: "La nuit garde le ton magique de la phrase."
+      },
+      {
+        type: "duo",
+        mode: "Duo carré cash",
+        theme: "Pokémon",
+        eyebrow: "Choisis les deux cartes liées",
+        question: "Quel duo est de type Feu ?",
+        subprompt: "Deux cartes brûlent plus que les autres.",
+        options: [
+          { title: "Salamèche", detail: "flamme au bout de la queue" },
+          { title: "Carapuce", detail: "eau et carapace" },
+          { title: "Goupix", detail: "renard flamboyant" },
+          { title: "Bulbizarre", detail: "plante et poison" }
+        ],
+        answer: [0, 2],
+        explanation: "Salamèche et Goupix sont associés au type Feu."
+      },
+      {
+        type: "quiz",
+        mode: "Question pour un champion",
+        theme: "Disney",
+        eyebrow: "Une seule bonne réponse",
+        question: "À minuit, que risque Cendrillon ?",
+        subprompt: "Le bon choix révèle un nouveau morceau.",
+        options: [
+          { title: "Le sort prend fin", detail: "carrosse, robe et magie disparaissent" },
+          { title: "La mer se fige", detail: "pas dans ce conte" },
+          { title: "Le tapis s'envole", detail: "autre univers" },
+          { title: "La couronne chante", detail: "joli, mais faux" }
+        ],
+        answer: 0,
+        explanation: "À minuit, la magie de Cendrillon prend fin."
+      },
+      {
+        type: "lyrics",
+        mode: "N'oubliez pas les paroles",
+        theme: "Friends",
+        eyebrow: "Complète la phrase originale",
+        question: "Dans l'appartement, les rires dessinent un grand ___.",
+        subprompt: "Phrase inventée pour cette mission cadeau.",
+        options: [
+          { title: "souvenir", detail: "ça reste après l'épisode" },
+          { title: "orage", detail: "pas l'ambiance" },
+          { title: "contrat", detail: "trop administratif" },
+          { title: "tunnel", detail: "pas le bon décor" }
+        ],
+        answer: 0,
+        explanation: "Un grand souvenir, c'est le bon esprit."
+      },
+      {
+        type: "duo",
+        mode: "Duo carré cash",
+        theme: "Disney",
+        eyebrow: "Choisis les deux cartes liées",
+        question: "Quel duo vit une aventure avec l'océan ?",
+        subprompt: "Deux noms, même voyage marin.",
+        options: [
+          { title: "Vaiana", detail: "cap vers le large" },
+          { title: "Maui", detail: "demi-dieu et hameçon" },
+          { title: "Buzz", detail: "vers l'infini" },
+          { title: "Mulan", detail: "honneur et courage" }
+        ],
+        answer: [0, 1],
+        explanation: "Vaiana et Maui partagent l'aventure de l'océan."
+      },
+      {
+        type: "quiz",
+        mode: "Question pour un champion",
+        theme: "Friends",
+        eyebrow: "Une seule bonne réponse",
+        question: "Comment s'appelle le café où la bande se retrouve souvent ?",
+        subprompt: "Dernière ligne droite avant le cadeau.",
+        options: [
+          { title: "Central Perk", detail: "le canapé orange n'est jamais loin" },
+          { title: "Monk's Café", detail: "autre série new-yorkaise" },
+          { title: "Luke's", detail: "autre ville, autre ambiance" },
+          { title: "MacLaren's", detail: "autre groupe d'amis" }
+        ],
+        answer: 0,
+        explanation: "La bande se retrouve souvent au Central Perk."
+      },
+      {
+        type: "lyrics",
+        mode: "N'oubliez pas les paroles",
+        theme: "Disney",
+        eyebrow: "Complète la phrase originale",
+        question: "La baguette trace demain avec un éclat de ___.",
+        subprompt: "Dernier mot pour ouvrir l'invitation.",
+        options: [
+          { title: "lumière", detail: "la touche finale" },
+          { title: "fromage", detail: "pas dans cette formule" },
+          { title: "papier", detail: "trop plat" },
+          { title: "brouillard", detail: "on veut justement le retirer" }
+        ],
+        answer: 0,
+        explanation: "La lumière termine parfaitement l'invitation."
+      }
+    ];
+
+    const rounds = buildHardRounds();
+
+    const elements = {
+      body: document.body,
+      gamePanel: document.getElementById("gamePanel"),
+      modeChip: document.getElementById("modeChip"),
+      themeChip: document.getElementById("themeChip"),
+      roundCount: document.getElementById("roundCount"),
+      eyebrow: document.getElementById("eyebrow"),
+      questionText: document.getElementById("questionText"),
+      subprompt: document.getElementById("subprompt"),
+      answers: document.getElementById("answers"),
+      feedback: document.getElementById("feedback"),
+      nextButton: document.getElementById("nextButton"),
+      scoreValue: document.getElementById("scoreValue"),
+      imageValue: document.getElementById("imageValue"),
+      roundValue: document.getElementById("roundValue"),
+      giftStatus: document.getElementById("giftStatus"),
+      progressPercent: document.getElementById("progressPercent"),
+      giftPicture: document.getElementById("giftPicture"),
+      finalGiftPicture: document.getElementById("finalGiftPicture"),
+      tileGrid: document.getElementById("tileGrid"),
+      sparkleLayer: document.getElementById("sparkleLayer"),
+      unlockLabel: document.getElementById("unlockLabel"),
+      miniLeds: document.getElementById("miniLeds"),
+      memoryPath: document.getElementById("memoryPath"),
+      memoryStatus: document.getElementById("memoryStatus"),
+      accessGate: document.getElementById("accessGate"),
+      accessForm: document.getElementById("accessForm"),
+      accessAnswer: document.getElementById("accessAnswer"),
+      accessFeedback: document.getElementById("accessFeedback"),
+      introScreen: document.getElementById("introScreen"),
+      startButton: document.getElementById("startButton"),
+      finaleScreen: document.getElementById("finaleScreen"),
+      finalMemoryPath: document.getElementById("finalMemoryPath"),
+      photoReveal: document.getElementById("photoReveal"),
+      photoRevealImage: document.getElementById("photoRevealImage"),
+      photoRevealBadge: document.getElementById("photoRevealBadge"),
+      photoRevealTitle: document.getElementById("photoRevealTitle"),
+      photoRevealCaption: document.getElementById("photoRevealCaption"),
+      photoRevealButton: document.getElementById("photoRevealButton"),
+      downloadButton: document.getElementById("downloadButton"),
+      replayButton: document.getElementById("replayButton"),
+      confettiCanvas: document.getElementById("confettiCanvas")
+    };
+
+    const state = {
+      currentRound: 0,
+      score: 0,
+      unlocked: 0,
+      answered: false,
+      multiSelection: [],
+      invitationUrl: "",
+      giftImageSource: GIFT_IMAGE_PATH,
+      revealOrder: []
+    };
+
+    const photoCaptions = [
+      "Premier sourire", "Petit regard", "Main dans la main", "Goûter sucré", "Jour de fête", "Câlin volé", "Photo floue", "Grand fou rire", "Moment d'été", "Soirée douce", "Bougie une", "Bougie deux", "Bougie trois", "Selfie tendre", "Clin d'œil", "Promenade", "Cœur léger", "Souvenir secret", "Petite victoire", "Robe préférée", "Café partagé", "Danse maison", "Voyage rêvé", "Paillettes", "Dimanche calme", "Photo dossier", "Instant magique", "Regard complice", "Dernier indice", "Presque cadeau", "31 ans"
+    ];
+
+    const photoMoments = Array.from({ length: BIRTHDAY_AGE }, (_, index) => ({
+      title: `Photo ${String(index + 1).padStart(2, "0")}`,
+      caption: photoCaptions[index],
+      image: `photos/${index + 1}.png`,
+      fallback: createMemoryPhoto(index)
+    }));
+
+    function escapeSvgText(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function createMemoryPhoto(index) {
+      const hue = (index * 37) % 360;
+      const nextHue = (hue + 62) % 360;
+      const safeTitle = escapeSvgText(String(index + 1).padStart(2, "0"));
+      const safeCaption = escapeSvgText(photoCaptions[index] || "Souvenir");
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="hsl(${hue} 78% 74%)"/>
+              <stop offset="1" stop-color="hsl(${nextHue} 82% 82%)"/>
+            </linearGradient>
+            <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#17212b" flood-opacity="0.2"/>
+            </filter>
+          </defs>
+          <rect width="300" height="300" rx="24" fill="url(#g)"/>
+          <circle cx="244" cy="58" r="44" fill="#fff" opacity="0.34"/>
+          <circle cx="58" cy="238" r="54" fill="#fff" opacity="0.28"/>
+          <path d="M58 178 C92 120 124 122 150 164 C176 122 208 120 242 178 C218 224 184 248 150 262 C116 248 82 224 58 178 Z" fill="#fff" opacity="0.9" filter="url(#s)"/>
+          <circle cx="118" cy="130" r="26" fill="#17212b" opacity="0.72"/>
+          <circle cx="182" cy="130" r="26" fill="#17212b" opacity="0.72"/>
+          <path d="M120 194 C138 210 162 210 180 194" fill="none" stroke="#17212b" stroke-width="9" stroke-linecap="round" opacity="0.62"/>
+          <text x="150" y="54" text-anchor="middle" font-family="Verdana, sans-serif" font-size="30" font-weight="700" fill="#17212b">${safeTitle}</text>
+          <text x="150" y="284" text-anchor="middle" font-family="Verdana, sans-serif" font-size="20" font-weight="700" fill="#17212b">${safeCaption}</text>
+        </svg>`;
+
+      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    }
+
+    function useFallbackImage(image, fallback) {
+      image.addEventListener("error", () => {
+        image.src = fallback;
+      }, { once: true });
+    }
+
+    function shuffleIndexes(total) {
+      const order = Array.from({ length: total }, (_, index) => index);
+
+      for (let index = order.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [order[index], order[swapIndex]] = [order[swapIndex], order[index]];
+      }
+
+      return order;
+    }
+
+    function buildHardRounds() {
+      return [
+        { type: "multi", mode: "Duo carré cash", variant: "Duo", theme: "Pokémon", eyebrow: "Duo : choisis 2 réponses", question: "À Hoenn, quels deux Pokémon sont ressuscités à partir des Fossiles Racine et Griffe ?", subprompt: "Deux fossiles de la troisième génération, deux réponses exactes.", requiredCount: 2, options: [{ title: "Lilia", detail: "lié au Fossile Racine" }, { title: "Anorith", detail: "lié au Fossile Griffe" }, { title: "Kabuto", detail: "fossile de Kanto" }, { title: "Dinoclier", detail: "fossile de Sinnoh" }, { title: "Amonita", detail: "fossile Nautile" }, { title: "Kranidos", detail: "fossile Crâne" }], answer: [0, 1], explanation: "Lilia et Anorith sont les deux fossiles de Hoenn." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Disney", eyebrow: "Je suis...", question: "Je suis linguiste, je porte des lunettes rondes, et je pars chercher l'Atlantide avec une équipe d'exploration. Qui suis-je ?", subprompt: "Question classique : lis les indices, puis buzze la bonne réponse.", options: [{ title: "Milo Thatch", detail: "Atlantide, l'empire perdu" }, { title: "Jim Hawkins", detail: "La Planète au trésor" }, { title: "Basil", detail: "détective de Baker Street" }, { title: "Bernard", detail: "SOS Société" }], answer: 0, explanation: "Milo Thatch est le linguiste d'Atlantide, l'empire perdu." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Friends", eyebrow: "Complète le couplet inventé", question: "Au Central Perk, six tasses battent le tempo, et le canapé garde leur ___.", subprompt: "Le mot doit garder le ton chaleureux de la bande.", options: [{ title: "secret", detail: "tout se confie au café" }, { title: "ticket", detail: "trop administratif" }, { title: "orage", detail: "pas l'ambiance" }, { title: "casque", detail: "hors décor" }], answer: 0, explanation: "Le canapé garde leurs secrets, évidemment." },
+        { type: "multi", mode: "Duo carré cash", variant: "Carré", theme: "Disney", eyebrow: "Carré : choisis 4 réponses", question: "Dans cette liste, quels quatre noms sont des nains de Blanche-Neige en version française ?", subprompt: "Quatre bonnes réponses exactement.", requiredCount: 4, options: [{ title: "Prof", detail: "le plus savant" }, { title: "Grincheux", detail: "pas facile à amadouer" }, { title: "Dormeur", detail: "souvent fatigué" }, { title: "Atchoum", detail: "son nom le trahit" }, { title: "Gus", detail: "vient de Cendrillon" }, { title: "Jaq", detail: "petite souris" }, { title: "Lumière", detail: "vient de La Belle et la Bête" }, { title: "Pumbaa", detail: "vient du Roi Lion" }], answer: [0, 1, 2, 3], explanation: "Prof, Grincheux, Dormeur et Atchoum font partie des sept nains." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Pokémon", eyebrow: "Cash : écris la réponse", question: "Quel Pokémon national n°201 possède des formes inspirées de l'alphabet ancien ?", subprompt: "Tu dois écrire le nom du Pokémon.", cashAnswers: ["Zarbi", "Unown"], explanation: "Zarbi est le Pokémon n°201 et existe sous plusieurs formes de lettres." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Friends", eyebrow: "Je suis...", question: "Je suis l'ex de Chandler, ma voix est reconnaissable entre toutes, et je surgis souvent au mauvais moment. Qui suis-je ?", subprompt: "Classique : un indice après l'autre, une seule réponse.", options: [{ title: "Janice", detail: "l'apparition la plus sonore" }, { title: "Julie", detail: "relation de Ross" }, { title: "Mona", detail: "relation de Ross" }, { title: "Emily", detail: "mariage compliqué" }], answer: 0, explanation: "Janice est l'ex de Chandler qui revient régulièrement." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Disney", eyebrow: "Complète le couplet inventé", question: "Quand la rose compte les saisons, le château retient son dernier ___.", subprompt: "Un mot très lié à La Belle et la Bête.", options: [{ title: "pétale", detail: "le bon symbole" }, { title: "miroir", detail: "important, mais pas ici" }, { title: "tambour", detail: "hors conte" }, { title: "galet", detail: "pas assez enchanté" }], answer: 0, explanation: "Le dernier pétale donne le bon ton Disney." },
+        { type: "multi", mode: "Duo carré cash", variant: "Duo", theme: "Friends", eyebrow: "Duo : choisis 2 réponses", question: "Quels deux personnages se marient à Las Vegas après une soirée très arrosée ?", subprompt: "Deux prénoms, un mariage imprévu.", requiredCount: 2, options: [{ title: "Ross", detail: "un mariage de plus" }, { title: "Rachel", detail: "réveil difficile" }, { title: "Monica", detail: "pas à Vegas" }, { title: "Chandler", detail: "autre demande" }, { title: "Phoebe", detail: "autre histoire" }, { title: "Joey", detail: "présent, mais pas marié" }], answer: [0, 1], explanation: "Ross et Rachel se marient à Las Vegas." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Pokémon", eyebrow: "Je suis...", question: "Je suis une ville de Johto, connue pour la Tour Cendrée et la Tour Carillon. Qui suis-je ?", subprompt: "Réponse en version française.", options: [{ title: "Rosalia", detail: "ville aux deux tours" }, { title: "Doublonville", detail: "grande métropole" }, { title: "Irisia", detail: "ville insulaire" }, { title: "Acajou", detail: "près du Lac Colère" }], answer: 0, explanation: "Rosalia abrite la Tour Cendrée et la Tour Carillon." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Disney", eyebrow: "Cash : écris la réponse", question: "Dans Hercule, quel est le nom du satyre qui entraîne le héros ?", subprompt: "Le prénom complet ou son diminutif sont acceptés.", cashAnswers: ["Philoctète", "Philoctete", "Phil"], explanation: "Philoctète, souvent appelé Phil, entraîne Hercule." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Pokémon", eyebrow: "Complète le couplet inventé", question: "Dans la Tour Cendrée, la plume d'Ho-Oh rallume un ancien ___.", subprompt: "Un mot qui colle au mythe et au feu sacré.", options: [{ title: "serment", detail: "solennel et légendaire" }, { title: "cartable", detail: "trop scolaire" }, { title: "sandwich", detail: "pas très mystique" }, { title: "parapluie", detail: "mauvaise météo" }], answer: 0, explanation: "Le serment garde le ton légendaire de Rosalia." },
+        { type: "multi", mode: "Duo carré cash", variant: "Carré", theme: "Pokémon", eyebrow: "Carré : choisis 4 réponses", question: "Quels sont les quatre gardiens d'Alola, les Pokémon protecteurs des îles ?", subprompt: "Quatre Tokos, aucune erreur.", requiredCount: 4, options: [{ title: "Tokorico", detail: "gardien de Mele-Mele" }, { title: "Tokopiyon", detail: "gardien d'Akala" }, { title: "Tokotoro", detail: "gardien d'Ula-Ula" }, { title: "Tokopisco", detail: "gardien de Poni" }, { title: "Solgaleo", detail: "légendaire solaire" }, { title: "Lunala", detail: "légendaire lunaire" }, { title: "Magearna", detail: "fabuleux" }, { title: "Necrozma", detail: "prisme redoutable" }], answer: [0, 1, 2, 3], explanation: "Les quatre gardiens d'Alola sont Tokorico, Tokopiyon, Tokotoro et Tokopisco." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Friends", eyebrow: "Je suis...", question: "Je suis le petit singe capucin de Ross dans la première saison. Qui suis-je ?", subprompt: "Un nom court, mais il faut l'avoir retenu.", options: [{ title: "Marcel", detail: "le capucin de Ross" }, { title: "Ben", detail: "le fils de Ross" }, { title: "Tag", detail: "assistant de Rachel" }, { title: "Eddie", detail: "colocataire temporaire" }], answer: 0, explanation: "Le singe de Ross s'appelle Marcel." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Friends", eyebrow: "Cash : écris la réponse", question: "Pendant le quiz de l'appartement, quel faux métier Rachel invente-t-elle pour Chandler ?", subprompt: "Réponse culte, orthographe anglaise acceptée.", cashAnswers: ["Transponster"], explanation: "Rachel répond Transponster, ce qui n'est pas le métier de Chandler." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Disney", eyebrow: "Complète le couplet inventé", question: "Sous les lanternes du royaume, Raiponce suit une mer de ___.", subprompt: "Le mot doit rappeler la scène lumineuse.", options: [{ title: "lumière", detail: "le bon éclat" }, { title: "brouillard", detail: "on le retire déjà" }, { title: "clavier", detail: "trop moderne" }, { title: "valise", detail: "pas la scène" }], answer: 0, explanation: "La lumière garde l'image des lanternes." },
+        { type: "multi", mode: "Duo carré cash", variant: "Duo", theme: "Disney", eyebrow: "Duo : choisis 2 réponses", question: "Dans Merlin l'Enchanteur, quels deux magiciens s'affrontent lors du duel de transformations ?", subprompt: "Deux noms, un duel très précis.", requiredCount: 2, options: [{ title: "Merlin", detail: "enchanteur du jeune Arthur" }, { title: "Madame Mim", detail: "adversaire du duel" }, { title: "Yen Sid", detail: "sorcier de Fantasia" }, { title: "Jafar", detail: "vizir d'Agrabah" }, { title: "Maléfique", detail: "fée noire" }, { title: "Ursula", detail: "sorcière des mers" }], answer: [0, 1], explanation: "Merlin affronte Madame Mim dans le duel de transformations." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Pokémon", eyebrow: "Je suis...", question: "Je suis l'évolution de Farfuret obtenue avec une Griffe Rasoir pendant la nuit. Qui suis-je ?", subprompt: "Réponse en version française.", options: [{ title: "Dimoret", detail: "type Ténèbres et Glace" }, { title: "Farfurex", detail: "forme de Hisui" }, { title: "Noctali", detail: "évolution d'Évoli" }, { title: "Corboss", detail: "évolution de Cornèbre" }], answer: 0, explanation: "Farfuret évolue en Dimoret avec une Griffe Rasoir de nuit." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Pokémon", eyebrow: "Cash : écris la réponse", question: "Quel est le nom français de la région principale de Pokémon Noir et Blanc ?", subprompt: "Une réponse courte, mais pas Kanto, Johto, ni Hoenn.", cashAnswers: ["Unys"], explanation: "Pokémon Noir et Blanc se déroule dans la région d'Unys." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Friends", eyebrow: "Complète le couplet inventé", question: "Quand l'appartement change de mains, le quiz fait trembler chaque ___.", subprompt: "Un objet central de la scène.", options: [{ title: "réponse", detail: "le quiz décide de tout" }, { title: "nuage", detail: "pas dans l'appartement" }, { title: "bateau", detail: "hors décor" }, { title: "crayon", detail: "accessoire secondaire" }], answer: 0, explanation: "Chaque réponse compte dans le quiz de l'appartement." },
+        { type: "multi", mode: "Duo carré cash", variant: "Carré", theme: "Friends", eyebrow: "Carré : choisis 4 réponses", question: "Quels quatre personnages du groupe deviennent parents au cours de la série ou du final ?", subprompt: "Quatre réponses, en pensant aux enfants biologiques ou adoptés.", requiredCount: 4, options: [{ title: "Ross", detail: "Ben puis Emma" }, { title: "Rachel", detail: "Emma" }, { title: "Monica", detail: "adoption dans le final" }, { title: "Chandler", detail: "adoption dans le final" }, { title: "Phoebe", detail: "mère porteuse, pas parent des triplés" }, { title: "Joey", detail: "pas parent dans la série" }, { title: "Gunther", detail: "pas concerné" }, { title: "Janice", detail: "pas dans le groupe principal" }], answer: [0, 1, 2, 3], explanation: "Ross, Rachel, Monica et Chandler deviennent parents dans la série ou le final." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Disney", eyebrow: "Je suis...", question: "Je suis le sorcier dont le nom se lit presque comme Disney à l'envers, et j'apparaîs dans Fantasia. Qui suis-je ?", subprompt: "Un indice de lettres, une réponse de sorcier.", options: [{ title: "Yen Sid", detail: "le maître sorcier" }, { title: "Merlin", detail: "autre enchanteur" }, { title: "Jafar", detail: "vizir d'Agrabah" }, { title: "Facilier", detail: "docteur vaudou" }], answer: 0, explanation: "Yen Sid est le sorcier de Fantasia." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Disney", eyebrow: "Cash : écris la réponse", question: "Dans Le Roi Lion, quel est le nom de la mère de Simba ?", subprompt: "Réponse attendue en un mot.", cashAnswers: ["Sarabi"], explanation: "La mère de Simba s'appelle Sarabi." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Pokémon", eyebrow: "Complète le couplet inventé", question: "Le Pokédex murmure : le numéro 201 trace un alphabet de ___.", subprompt: "Un mot qui décrit les formes de Zarbi.", options: [{ title: "signes", detail: "lettres anciennes" }, { title: "galets", detail: "pas assez précis" }, { title: "rubans", detail: "pas le bon Pokémon" }, { title: "miroirs", detail: "hors sujet" }], answer: 0, explanation: "Zarbi trace bien un alphabet de signes." },
+        { type: "multi", mode: "Duo carré cash", variant: "Duo", theme: "Pokémon", eyebrow: "Duo : choisis 2 réponses", question: "Quels deux Pokémon forment le duo de l'Éon lié à Hoenn ?", subprompt: "Deux légendaires, souvent associés au même mythe.", requiredCount: 2, options: [{ title: "Latias", detail: "Éon rouge" }, { title: "Latios", detail: "Éon bleu" }, { title: "Kyogre", detail: "mer ancestrale" }, { title: "Groudon", detail: "terre ancestrale" }, { title: "Rayquaza", detail: "ciel" }, { title: "Jirachi", detail: "vœux" }], answer: [0, 1], explanation: "Latias et Latios forment le duo de l'Éon." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Friends", eyebrow: "Je suis...", question: "Je suis le serveur du Central Perk, longtemps amoureux de Rachel, avec une chevelure très reconnaissable. Qui suis-je ?", subprompt: "Un personnage secondaire incontournable.", options: [{ title: "Gunther", detail: "le Central Perk incarné" }, { title: "Mike", detail: "mari de Phoebe" }, { title: "Richard", detail: "ancien amour de Monica" }, { title: "David", detail: "scientifique amoureux de Phoebe" }], answer: 0, explanation: "Gunther travaille au Central Perk et aime Rachel en secret." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Friends", eyebrow: "Cash : écris la réponse", question: "Quel est le prénom du fils de Ross et Carol ?", subprompt: "Réponse en trois lettres.", cashAnswers: ["Ben"], explanation: "Le fils de Ross et Carol s'appelle Ben." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Disney", eyebrow: "Complète le couplet inventé", question: "À minuit, la citrouille retrouve la route et perd son ___.", subprompt: "Le mot doit renvoyer à Cendrillon.", options: [{ title: "carrosse", detail: "la transformation s'achève" }, { title: "volcan", detail: "mauvais décor" }, { title: "micro", detail: "pas dans le conte" }, { title: "compas", detail: "pas la magie" }], answer: 0, explanation: "Le carrosse redevient citrouille à minuit." },
+        { type: "multi", mode: "Duo carré cash", variant: "Carré", theme: "Disney", eyebrow: "Carré : choisis 4 réponses", question: "Dans Encanto, quels quatre membres de la famille Madrigal ont un don magique individuel ?", subprompt: "Quatre réponses exactes dans cette liste.", requiredCount: 4, options: [{ title: "Isabela", detail: "fleurs et plantes" }, { title: "Luisa", detail: "force immense" }, { title: "Bruno", detail: "visions" }, { title: "Pepa", detail: "météo émotionnelle" }, { title: "Mirabel", detail: "pas de don individuel" }, { title: "Agustín", detail: "piqué par les abeilles" }, { title: "Félix", detail: "mari de Pepa" }, { title: "Mariano", detail: "pas Madrigal" }], answer: [0, 1, 2, 3], explanation: "Isabela, Luisa, Bruno et Pepa ont chacun un don magique individuel." },
+        { type: "quiz", mode: "Question pour un champion", theme: "Pokémon", eyebrow: "Je suis...", question: "Je suis un Pokémon fabuleux de Hoenn qui se réveille tous les mille ans pour exaucer des vœux. Qui suis-je ?", subprompt: "Un indice de sommeil et de souhaits.", options: [{ title: "Jirachi", detail: "le Pokémon Souhait" }, { title: "Deoxys", detail: "ADN venu de l'espace" }, { title: "Celebi", detail: "voyage temporel" }, { title: "Manaphy", detail: "prince des mers" }], answer: 0, explanation: "Jirachi est associé aux vœux et à un réveil millénaire." },
+        { type: "lyrics", mode: "N'oubliez pas les paroles", theme: "Friends", eyebrow: "Complète le couplet inventé", question: "Dans le couloir violet, une dinde sur la tête rallume le ___.", subprompt: "Référence à une scène de Thanksgiving.", options: [{ title: "rire", detail: "l'effet immédiat" }, { title: "silence", detail: "jamais longtemps" }, { title: "contrat", detail: "trop sérieux" }, { title: "radar", detail: "hors série" }], answer: 0, explanation: "La dinde de Monica rallume clairement le rire." },
+        { type: "cash", mode: "Duo carré cash", variant: "Cash", theme: "Disney", eyebrow: "Cash final : écris la réponse", question: "Dans Le Bossu de Notre-Dame, le juge Claude porte quel nom de famille ?", subprompt: "Dernière réponse pour ouvrir l'invitation des 31 ans.", cashAnswers: ["Frollo", "Claude Frollo"], explanation: "Le juge s'appelle Claude Frollo. Cadeau des 31 ans débloqué." }
+      ];
+    }
+
+    function makeInvitationSvg() {
+      const safeGift = Object.fromEntries(
+        Object.entries(gift).map(([key, value]) => [key, escapeSvgText(value)])
+      );
+
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+          <defs>
+            <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#fff8e8"/>
+              <stop offset="0.36" stop-color="#d8f7f1"/>
+              <stop offset="0.7" stop-color="#ffd3cf"/>
+              <stop offset="1" stop-color="#f9df77"/>
+            </linearGradient>
+            <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#17212b"/>
+              <stop offset="1" stop-color="#0b8f8a"/>
+            </linearGradient>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#17212b" flood-opacity="0.22"/>
+            </filter>
+            <pattern id="dots" width="42" height="42" patternUnits="userSpaceOnUse">
+              <circle cx="7" cy="7" r="4" fill="#ffffff" opacity="0.5"/>
+              <circle cx="30" cy="25" r="3" fill="#17212b" opacity="0.08"/>
+            </pattern>
+          </defs>
+          <rect width="1200" height="800" fill="url(#bg)"/>
+          <rect width="1200" height="800" fill="url(#dots)"/>
+          <path d="M-30 618 C170 522 254 704 436 602 C600 510 704 496 842 582 C990 674 1082 544 1236 628 L1236 832 L-30 832 Z" fill="#ffffff" opacity="0.42"/>
+          <path d="M884 72 L1044 118 L998 278 L838 232 Z" fill="#ff6f61" opacity="0.82"/>
+          <path d="M100 96 L246 58 L288 210 L142 248 Z" fill="#8bd4ff" opacity="0.75"/>
+          <path d="M962 536 C1040 510 1126 558 1134 640 C1144 744 1018 760 960 704 C904 650 898 558 962 536 Z" fill="#9ee6c8" opacity="0.8"/>
+          <rect x="138" y="118" width="924" height="564" rx="34" fill="#ffffff" opacity="0.9" filter="url(#shadow)"/>
+          <rect x="170" y="150" width="860" height="500" rx="24" fill="none" stroke="#17212b" stroke-width="3" stroke-dasharray="15 16" opacity="0.22"/>
+          <text x="600" y="228" text-anchor="middle" font-family="Verdana, sans-serif" font-size="30" font-weight="700" letter-spacing="6" fill="#0b8f8a">${safeGift.lineOne.toUpperCase()}</text>
+          <text x="600" y="328" text-anchor="middle" font-family="Georgia, serif" font-size="86" font-weight="700" fill="url(#ink)">${safeGift.name}</text>
+          <text x="600" y="404" text-anchor="middle" font-family="Verdana, sans-serif" font-size="40" font-weight="700" fill="#17212b">${safeGift.title}</text>
+          <text x="600" y="456" text-anchor="middle" font-family="Verdana, sans-serif" font-size="34" font-weight="700" fill="#0b8f8a">${safeGift.company}</text>
+          <text x="600" y="522" text-anchor="middle" font-family="Verdana, sans-serif" font-size="31" fill="#394856">pour ${safeGift.destination}</text>
+          <text x="600" y="582" text-anchor="middle" font-family="Verdana, sans-serif" font-size="28" font-weight="700" fill="#0b8f8a">${safeGift.date}</text>
+          <text x="600" y="632" text-anchor="middle" font-family="Verdana, sans-serif" font-size="24" fill="#64717f">${safeGift.from}</text>
+          <g transform="translate(820 506)" opacity="0.72">
+            <rect x="0" y="44" width="24" height="70" rx="6" fill="#0b8f8a"/>
+            <rect x="36" y="12" width="24" height="102" rx="6" fill="#f6bd3b"/>
+            <rect x="72" y="30" width="24" height="84" rx="6" fill="#ff6f61"/>
+            <path d="M0 28 C32 8 52 36 84 14" fill="none" stroke="#17212b" stroke-width="7" stroke-linecap="round"/>
+          </g>
+          <circle cx="228" cy="580" r="15" fill="#ff6f61"/>
+          <circle cx="970" cy="206" r="13" fill="#f6bd3b"/>
+          <circle cx="890" cy="604" r="10" fill="#0b8f8a"/>
+          <path d="M244 328 L272 384 L334 392 L288 436 L300 498 L244 468 L188 498 L200 436 L154 392 L216 384 Z" fill="#f6bd3b" opacity="0.9"/>
+        </svg>`;
+    }
+
+    function setupGiftImage() {
+      if (state.invitationUrl) {
+        URL.revokeObjectURL(state.invitationUrl);
+      }
+
+      const blob = new Blob([makeInvitationSvg()], { type: "image/svg+xml" });
+      state.invitationUrl = URL.createObjectURL(blob);
+      state.giftImageSource = GIFT_IMAGE_PATH;
+
+      [elements.giftPicture, elements.finalGiftPicture].forEach((image) => {
+        image.onerror = () => {
+          image.onerror = null;
+          image.src = state.invitationUrl;
+          state.giftImageSource = state.invitationUrl;
+        };
+        image.src = GIFT_IMAGE_PATH;
+      });
+    }
+
+    function setupRevealGrid() {
+      elements.tileGrid.innerHTML = "";
+      elements.miniLeds.innerHTML = "";
+      elements.sparkleLayer.innerHTML = "";
+      state.revealOrder = shuffleIndexes(TOTAL_TILES);
+
+      for (let index = 0; index < TOTAL_TILES; index += 1) {
+        const tile = document.createElement("span");
+        tile.className = "fog-tile";
+        elements.tileGrid.appendChild(tile);
+
+        const led = document.createElement("span");
+        elements.miniLeds.appendChild(led);
+      }
+
+      for (let index = 0; index < 16; index += 1) {
+        const sparkle = document.createElement("i");
+        const angle = (Math.PI * 2 * index) / 16;
+        const distance = 54 + (index % 4) * 12;
+        sparkle.style.left = `${44 + (index % 5) * 4}%`;
+        sparkle.style.top = `${42 + (index % 4) * 5}%`;
+        sparkle.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
+        sparkle.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
+        sparkle.style.animationDelay = `${index * 18}ms`;
+        elements.sparkleLayer.appendChild(sparkle);
+      }
+
+      setupMemoryPath();
+      setupFinalMemoryPath();
+    }
+
+    function setupMemoryPath() {
+      elements.memoryPath.innerHTML = "";
+      elements.memoryStatus.textContent = "0 photo débloquée";
+
+      photoMoments.forEach((photo, index) => {
+        const step = document.createElement("article");
+        step.className = "photo-step";
+        step.style.setProperty("--tilt", `${index % 2 === 0 ? -2 : 2}deg`);
+
+        const button = document.createElement("button");
+        button.className = "photo-frame";
+        button.type = "button";
+        button.disabled = true;
+        button.setAttribute("aria-label", `Afficher ${photo.title} en grand`);
+        button.addEventListener("click", () => showPhotoReveal(index));
+
+        const image = document.createElement("img");
+        image.src = photo.image;
+        image.alt = `${photo.title} des 31 ans`;
+        useFallbackImage(image, photo.fallback);
+        button.appendChild(image);
+
+        step.appendChild(button);
+        elements.memoryPath.appendChild(step);
+      });
+    }
+
+    function setupFinalMemoryPath() {
+      elements.finalMemoryPath.innerHTML = "";
+
+      photoMoments.forEach((photo) => {
+        const image = document.createElement("img");
+        image.src = photo.image;
+        image.alt = photo.caption;
+        useFallbackImage(image, photo.fallback);
+        elements.finalMemoryPath.appendChild(image);
+      });
+    }
+
+    function unlockMemoryStep(index) {
+      const steps = [...elements.memoryPath.children];
+      const step = steps[index];
+
+      if (!step) {
+        return;
+      }
+
+      steps.forEach((item) => item.classList.remove("active"));
+      step.classList.add("unlocked", "active");
+      step.querySelector("button")?.removeAttribute("disabled");
+      step.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+
+      const count = index + 1;
+      const label = count <= 1 ? "photo débloquée" : "photos débloquées";
+      elements.memoryStatus.textContent = `${count} ${label}`;
+      showPhotoReveal(index);
+    }
+
+    function showPhotoReveal(index) {
+      const photo = photoMoments[index];
+
+      if (!photo) {
+        return;
+      }
+
+      elements.photoRevealImage.onerror = () => {
+        elements.photoRevealImage.onerror = null;
+        elements.photoRevealImage.src = photo.fallback;
+      };
+      elements.photoRevealImage.src = photo.image;
+      elements.photoRevealImage.alt = `${photo.title} : ${photo.caption}`;
+      elements.photoRevealBadge.textContent = `${index + 1}/${BIRTHDAY_AGE}`;
+      elements.photoRevealTitle.textContent = "Photo débloquée";
+      elements.photoRevealCaption.textContent = "Un souvenir vient d'apparaître dans le parcours.";
+      elements.photoReveal.classList.add("open");
+      elements.photoRevealButton.focus();
+    }
+
+    function closePhotoReveal() {
+      elements.photoReveal.classList.remove("open");
+      elements.nextButton.focus();
+    }
+
+    function themeClass(theme) {
+      return `theme-${theme.toLowerCase().replace("é", "e")}`;
+    }
+
+    function renderRound() {
+      const round = rounds[state.currentRound];
+      state.answered = false;
+      state.multiSelection = [];
+
+      elements.modeChip.textContent = round.variant ? `${round.mode} · ${round.variant}` : round.mode;
+      elements.themeChip.textContent = round.theme;
+      elements.themeChip.className = `chip ${themeClass(round.theme)}`;
+      elements.roundCount.textContent = `Round ${state.currentRound + 1} sur ${rounds.length}`;
+      elements.eyebrow.textContent = round.eyebrow;
+      elements.questionText.textContent = round.question;
+      elements.subprompt.textContent = round.subprompt;
+      elements.feedback.textContent = getRoundInstruction(round);
+      elements.feedback.className = "feedback";
+      elements.nextButton.disabled = true;
+      elements.nextButton.textContent = state.currentRound === rounds.length - 1 ? "Voir le cadeau" : "Suivant";
+      elements.answers.innerHTML = "";
+
+      if (round.type === "cash") {
+        renderCashRound(round);
+        updateHud();
+        return;
+      }
+
+      round.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "answer-card";
+        button.type = "button";
+        button.innerHTML = `<strong>${option.title}</strong><span>${option.detail}</span>`;
+        button.addEventListener("click", () => {
+          if (round.type === "multi") {
+            handleMultiAnswer(index, button);
+            return;
+          }
+
+          handleSingleAnswer(index, button);
+        });
+        elements.answers.appendChild(button);
+      });
+
+      updateHud();
+    }
+
+    function getRoundInstruction(round) {
+      if (round.type === "cash") {
+        return "Mode Cash : écris la réponse exacte pour débloquer une photo.";
+      }
+
+      if (round.type === "multi") {
+        const label = round.requiredCount === 4 ? "Carré" : "Duo";
+        return `${label} : sélectionne ${round.requiredCount} réponses exactes pour avancer sur le parcours.`;
+      }
+
+      if (round.type === "lyrics") {
+        return "Complète les paroles inventées pour débloquer la photo suivante.";
+      }
+
+      return "Question pour un champion : trouve la bonne réponse avant de passer au round suivant.";
+    }
+
+    function renderCashRound(round) {
+      const form = document.createElement("form");
+      form.className = "cash-form";
+      form.innerHTML = `
+        <label class="cash-label" for="cashAnswer">Réponse cash</label>
+        <div class="cash-line">
+          <input class="cash-input" id="cashAnswer" type="text" autocomplete="off" placeholder="Écris ta réponse ici">
+          <button class="primary-action" type="submit">Valider</button>
+        </div>`;
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        handleCashAnswer(form, round);
+      });
+      elements.answers.appendChild(form);
+    }
+
+    function normalizeAnswer(value) {
+      return value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9 ]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function handleCashAnswer(form, round) {
+      if (state.answered) {
+        return;
+      }
+
+      const input = form.querySelector("input");
+      const answer = normalizeAnswer(input.value);
+      const acceptedAnswers = round.cashAnswers.map(normalizeAnswer);
+
+      if (!acceptedAnswers.includes(answer)) {
+        form.classList.remove("wrong");
+        void form.offsetWidth;
+        form.classList.add("wrong");
+        elements.feedback.textContent = "Ce n'est pas la réponse cash. Corrige et retente.";
+        elements.feedback.className = "feedback bad";
+        input.select();
+        return;
+      }
+
+      completeRound([form], round.explanation);
+    }
+
+    function handleAccessAnswer(event) {
+      event.preventDefault();
+
+      if (normalizeAnswer(elements.accessAnswer.value) !== "coree") {
+        elements.accessFeedback.textContent = "Ce n'est pas encore ça. Essaie encore.";
+        elements.accessFeedback.className = "access-feedback bad";
+        elements.accessAnswer.select();
+        return;
+      }
+
+      elements.accessFeedback.textContent = "Accès validé.";
+      elements.accessFeedback.className = "access-feedback";
+      elements.accessGate.classList.add("hidden");
+      elements.startButton.focus();
+    }
+
+    function handleSingleAnswer(index, button) {
+      const round = rounds[state.currentRound];
+      if (state.answered || button.disabled) {
+        return;
+      }
+
+      if (index !== round.answer) {
+        button.classList.add("wrong");
+        button.disabled = true;
+        elements.feedback.textContent = "Pas celle-ci. Tu peux retenter sur la même question.";
+        elements.feedback.className = "feedback bad";
+        elements.gamePanel.classList.remove("shake");
+        void elements.gamePanel.offsetWidth;
+        elements.gamePanel.classList.add("shake");
+        return;
+      }
+
+      completeRound([button], round.explanation);
+    }
+
+    function handleMultiAnswer(index, button) {
+      const round = rounds[state.currentRound];
+      if (state.answered) {
+        return;
+      }
+
+      const requiredCount = round.requiredCount || round.answer.length;
+      const existing = state.multiSelection.find((item) => item.index === index);
+      if (existing) {
+        state.multiSelection = state.multiSelection.filter((item) => item.index !== index);
+        button.classList.remove("selected");
+        return;
+      }
+
+      if (state.multiSelection.length === requiredCount) {
+        return;
+      }
+
+      state.multiSelection.push({ index, button });
+      button.classList.add("selected");
+
+      if (state.multiSelection.length !== requiredCount) {
+        return;
+      }
+
+      const selectedIndexes = state.multiSelection.map((item) => item.index).sort((a, b) => a - b);
+      const answerIndexes = [...round.answer].sort((a, b) => a - b);
+      const isCorrect = selectedIndexes.every((value, answerIndex) => value === answerIndexes[answerIndex]);
+
+      if (!isCorrect) {
+        const wrongButtons = state.multiSelection.map((item) => item.button);
+        wrongButtons.forEach((wrongButton) => {
+          wrongButton.classList.remove("selected");
+          wrongButton.classList.add("wrong");
+        });
+        elements.feedback.textContent = requiredCount === 4
+          ? "Ce carré ne marche pas. Retente avec quatre autres cartes."
+          : "Ce duo ne marche pas. Retente avec deux autres cartes.";
+        elements.feedback.className = "feedback bad";
+
+        window.setTimeout(() => {
+          wrongButtons.forEach((wrongButton) => wrongButton.classList.remove("wrong"));
+          state.multiSelection = [];
+        }, 620);
+        return;
+      }
+
+      completeRound(state.multiSelection.map((item) => item.button), round.explanation);
+    }
+
+    function completeRound(correctTargets, explanation) {
+      state.answered = true;
+      state.score += 1;
+      revealNextTile();
+
+      elements.answers.querySelectorAll("button, input").forEach((control) => {
+        control.disabled = true;
+      });
+
+      elements.answers.querySelectorAll(".answer-card").forEach((button) => {
+        button.classList.remove("selected");
+      });
+      correctTargets.forEach((target) => target.classList.add("correct"));
+
+      elements.feedback.textContent = `Bonne réponse. ${explanation}`;
+      elements.feedback.className = "feedback good";
+      elements.nextButton.disabled = false;
+      sparkleReveal();
+      launchConfetti(80);
+      updateHud();
+    }
+
+    function revealNextTile() {
+      const tileIndex = state.revealOrder[state.unlocked] ?? state.unlocked;
+      const tile = elements.tileGrid.children[tileIndex];
+      const led = elements.miniLeds.children[state.unlocked];
+      const photoIndex = state.unlocked;
+
+      if (tile) {
+        tile.classList.add("revealed");
+      }
+
+      if (led) {
+        led.classList.add("on");
+      }
+
+      state.unlocked = Math.min(state.unlocked + 1, TOTAL_TILES);
+      unlockMemoryStep(photoIndex);
+      const label = state.unlocked <= 1 ? "morceau révélé" : "morceaux révélés";
+      elements.unlockLabel.textContent = `${state.unlocked} ${label}`;
+      elements.giftStatus.textContent = state.unlocked === TOTAL_TILES
+        ? "Les 31 photos et l'invitation sont entièrement révélées."
+        : "Le parcours photo avance morceau par morceau.";
+    }
+
+    function updateHud() {
+      const percent = Math.round((state.unlocked / TOTAL_TILES) * 100);
+      elements.scoreValue.textContent = state.score;
+      elements.imageValue.textContent = `${state.unlocked}/${TOTAL_TILES}`;
+      elements.roundValue.textContent = `${state.currentRound + 1}/${rounds.length}`;
+      elements.progressPercent.textContent = `${percent}%`;
+      elements.body.style.setProperty("--progress", `${percent}%`);
+    }
+
+    function sparkleReveal() {
+      elements.sparkleLayer.classList.remove("burst");
+      void elements.sparkleLayer.offsetWidth;
+      elements.sparkleLayer.classList.add("burst");
+    }
+
+    function showFinale() {
+      elements.finaleScreen.classList.add("open");
+      launchConfetti(190);
+      elements.downloadButton.focus();
+    }
+
+    function resetGame() {
+      state.currentRound = 0;
+      state.score = 0;
+      state.unlocked = 0;
+      state.answered = false;
+      state.multiSelection = [];
+      setupRevealGrid();
+      updateHud();
+      renderRound();
+      elements.finaleScreen.classList.remove("open");
+      elements.introScreen.classList.remove("hidden");
+    }
+
+    function downloadInvitation() {
+      const link = document.createElement("a");
+      const usingFallback = elements.finalGiftPicture.src === state.invitationUrl;
+      link.href = usingFallback ? state.invitationUrl : GIFT_IMAGE_PATH;
+      link.download = usingFallback ? "invitation-cadeau-sophie-franquet.svg" : "cadeau-sophie-franquet.png";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    function launchConfetti(amount) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      const canvas = elements.confettiCanvas;
+      const context = canvas.getContext("2d");
+      const pixelRatio = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(window.innerWidth * pixelRatio);
+      canvas.height = Math.floor(window.innerHeight * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      const colors = ["#ff6f61", "#f6bd3b", "#0b8f8a", "#8bd4ff", "#9ee6c8", "#17212b"];
+      const particles = Array.from({ length: amount }, () => ({
+        x: window.innerWidth / 2 + (Math.random() - 0.5) * 180,
+        y: window.innerHeight * 0.24 + Math.random() * 80,
+        vx: (Math.random() - 0.5) * 9,
+        vy: -5 - Math.random() * 7,
+        size: 5 + Math.random() * 8,
+        rotate: Math.random() * Math.PI,
+        spin: (Math.random() - 0.5) * 0.26,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        life: 0,
+        maxLife: 86 + Math.random() * 34
+      }));
+
+      function frame() {
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        particles.forEach((particle) => {
+          particle.life += 1;
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.vy += 0.18;
+          particle.rotate += particle.spin;
+          const opacity = Math.max(0, 1 - particle.life / particle.maxLife);
+
+          context.save();
+          context.globalAlpha = opacity;
+          context.translate(particle.x, particle.y);
+          context.rotate(particle.rotate);
+          context.fillStyle = particle.color;
+          context.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size * 0.58);
+          context.restore();
+        });
+
+        if (particles.some((particle) => particle.life < particle.maxLife)) {
+          requestAnimationFrame(frame);
+          return;
+        }
+
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    elements.nextButton.addEventListener("click", () => {
+      if (state.currentRound < rounds.length - 1) {
+        state.currentRound += 1;
+        renderRound();
+        return;
+      }
+
+      showFinale();
+    });
+
+    elements.startButton.addEventListener("click", () => {
+      elements.introScreen.classList.add("hidden");
+      elements.answers.querySelector("button")?.focus();
+    });
+
+    elements.downloadButton.addEventListener("click", downloadInvitation);
+    elements.replayButton.addEventListener("click", resetGame);
+    elements.photoRevealButton.addEventListener("click", closePhotoReveal);
+    elements.accessForm.addEventListener("submit", handleAccessAnswer);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && elements.photoReveal.classList.contains("open")) {
+        closePhotoReveal();
+      }
+    });
+
+    setupGiftImage();
+    setupRevealGrid();
+    renderRound();
+    elements.accessAnswer.focus();
+  </script>
+</body>
+</html>
